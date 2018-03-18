@@ -12,6 +12,7 @@ Add the RCircos library:
 Now we should load our dataset from our cleansed data. (and rearrange)
 
 ```{r}
+  comment(x) <- df <- read.table(file.choose(/data/chr20_data.tsv),sep = "\t", header=TRUE)
   df <- read.table("./data/chr20_data.tsv", sep = "\t", header=TRUE)
   df <- df[,c(2,3,4,1,5,6,7)]
   head(df)

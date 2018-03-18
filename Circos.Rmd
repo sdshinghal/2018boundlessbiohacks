@@ -12,10 +12,10 @@ Add the RCircos library:
 Now we should load our dataset from our cleansed data. (and rearrange)
 
 ```{r}
-  comment(x) <- df <- read.table(file.choose(/data/chr20_data.tsv),sep = "\t", header=TRUE)
-  df <- read.table("./data/chr20_data.tsv", sep = "\t", header=TRUE)
-  df <- df[,c(2,3,4,1,5,6,7)]
+  df <- read.table("./data/genesToProteins.tsv", sep = "\t", header=TRUE)
+  df <- df[,c(2:5)]
   head(df)
+
 ```
 
 Okay now we're going to start generating the RCircos.
@@ -33,6 +33,8 @@ And now to build setup RCircos
   tracks.inside = 10,
   tracks.outside = 5)
 RCircos.Set.Plot.Area();
+par(mai=c(0.25, 0.25, 0.25, 0.25))
+
 #RCircos.Chromosome.Ideogram.Plot()
 # TODO: write this
 ```
@@ -40,5 +42,16 @@ RCircos.Set.Plot.Area();
 Adding the gene mappings.
 
 ```{r}
+plot.new();
+plot.window(c(-2.5, 2.5), c(-2.5, 2.5));
+RCircos.Chromosome.Ideogram.Plot()
+
+name.col <- 4;
+side <- "in";
+track.num <- 1;
+  RCircos.Gene.Connector.Plot(df, track.num, side);
+
+track.num <- 2;
   
+RCircos.Gene.Name.Plot(df, name.col,track.num, side);
 ```

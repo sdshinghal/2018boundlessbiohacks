@@ -1,4 +1,4 @@
-chr	start	end	Band	Stain
+Chromosome	ChromStart	ChromEnd	Band	Stain
 20	0	5100000	p13	gneg
 20	5100001	9200000	p12.3	gpos
 20	9200001	12000000	p12.2	gneg

@@ -1,4 +1,4 @@
-	chr	start	end	sym	Protein	GO_C	GO_F	GO_P
+	Chromosome	ChromStart	ChromEnd	Gene	Protein	GO_C	GO_F	GO_P
 0	20	36236459.0	36270918.0	AAR2	Protein AAR2 homolog (AAR2 splicing factor homolog)	GO:0032991		GO:0022618
 1	20	25294743.0	25390983.0	ABHD12	Monoacylglycerol lipase ABHD12 (EC 3.1.1.23) (2-arachidonoylglycerol hydrolase) (Abhydrolase domain-containing protein 12)	GO:0005737	GO:0003674	GO:0006629
 2	20	63861498.0	63862988.0	ABHD16B	Protein ABHD16B (EC 3.-.-.-) (Alpha/beta hydrolase domain-containing protein 16B) (Abhydrolase domain-containing protein 16B)		GO:0003674	

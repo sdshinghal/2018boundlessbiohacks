@@ -1,4 +1,4 @@
-	chr	start	end	Protein
+	Chromosome ChromStart	ChromEnd	Protein
 0	20	36236459.0	36270918.0	Protein AAR2 homolog (AAR2 splicing factor homolog)
 1	20	25294743.0	25390983.0	Monoacylglycerol lipase ABHD12 (EC 3.1.1.23) (2-arachidonoylglycerol hydrolase) (Abhydrolase domain-containing protein 12)
 2	20	63861498.0	63862988.0	Protein ABHD16B (EC 3.-.-.-) (Alpha/beta hydrolase domain-containing protein 16B) (Abhydrolase domain-containing protein 16B)

@@ -1,0 +1,43 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Add the RCircos library:
+
+```{r}
+  library(RCircos)
+```
+
+Now we should load our dataset from our cleansed data. (and rearrange)
+
+```{r}
+  df <- read.table("./data/chr20_data.tsv", sep = "\t", header=TRUE)
+  df <- df[,c(2,3,4,1,5,6,7)]
+  head(df)
+```
+
+Okay now we're going to start generating the RCircos.
+Let's start by getting the Ideogram
+```{r}
+  ideogram <- read.table("./data/cytoband_data.tsv", sep = "\t", header=TRUE)
+  head(ideogram)
+```
+And now to build setup RCircos
+
+```{r}
+  RCircos.Set.Core.Components(
+  cyto.info = ideogram,
+  chr.exclude = NULL,
+  tracks.inside = 10,
+  tracks.outside = 5)
+RCircos.Set.Plot.Area();
+#RCircos.Chromosome.Ideogram.Plot()
+# TODO: write this
+```
+
+Adding the gene mappings.
+
+```{r}
+  
+```

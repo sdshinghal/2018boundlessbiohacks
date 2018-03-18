@@ -17,13 +17,23 @@ Now we should load our dataset from our cleansed data. (and rearrange)
   head(df)
 
 ```
+```{r}
+geneIngene <- read.table("./data/gene_gene_interact.tsv", sep = "\t", header=TRUE)
+  geneIngene <- geneIngene[,c(2:7)]
+geneIngene
+```
 
 Okay now we're going to start generating the RCircos.
 Let's start by getting the Ideogram
 ```{r}
   ideogram <- read.table("./data/cytoband_data.tsv", sep = "\t", header=TRUE)
   head(ideogram)
+  
 ```
+
+
+
+
 And now to build setup RCircos
 
 ```{r}
@@ -32,26 +42,37 @@ And now to build setup RCircos
   chr.exclude = NULL,
   tracks.inside = 10,
   tracks.outside = 5)
+
+rcircos.params <- RCircos.Get.Plot.Parameters();
+rcircos.params$base.per.unit <- 521;
+RCircos.Reset.Plot.Parameters(rcircos.params);
+RCircos.List.Plot.Parameters();
+
 RCircos.Set.Plot.Area();
 par(mai=c(0.25, 0.25, 0.25, 0.25))
-
-#RCircos.Chromosome.Ideogram.Plot()
-# TODO: write this
 ```
 
 Adding the gene mappings.
 
 ```{r}
 plot.new();
-plot.window(c(-2.5, 2.5), c(-2.5, 2.5));
-RCircos.Chromosome.Ideogram.Plot()
+plot.window(c(-5, 5), c(-5, 5));
+# RCircos.Chromosome.Ideogram.Plot()
 
 name.col <- 4;
-side <- "in";
-track.num <- 1;
+side <- "out";
+track.num <- 3;
   RCircos.Gene.Connector.Plot(df, track.num, side);
 
-track.num <- 2;
-  
-RCircos.Gene.Name.Plot(df, name.col,track.num, side);
+track.num <- 4;
+
+RCircos.Get.Gene.Label.Locations(genomic.data=df, 
+	genomic.columns=3, is.sorted = TRUE)
+
+RCircos.Gene.Name.Plot(df, name.col,track.num, side)
+#RCircos.Plot.Zoomed.Gene.Connectors(zoom.data = df, track.num = 2, zoom.pos = 1, outside.pos = 0)
+
+RCircos.Ribbon.Plot(ribbon.data = geneIngene, track.num=1, by.chromosome=FALSE, twist=FALSE)
+
+
 ```
